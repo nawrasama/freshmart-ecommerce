@@ -37,4 +37,6 @@ A modern, responsive online grocery store built with HTML, CSS, JavaScript, and 
 <img width="1920" height="1080" alt="6A" src="https://github.com/user-attachments/assets/44b8403d-4ae9-43ab-b067-84a41f648dbd" />
 <img width="1920" height="1080" alt="7A" src="https://github.com/user-attachments/assets/fa76899b-f9ab-4ac0-b0ae-7e61e223acad" />
 <img width="1920" height="1080" alt="8A" src="https://github.com/user-attachments/assets/ab8beb14-6f08-415d-91fa-cb1a0593769e" />
-<img width="1920" height="1080" alt="9A" src="https://github.com/user-attachments/assets/2ea2bbd4-2287-433f-bc12-e344b7ae55cf" />
+<img width="1920" height="1080" alt="9A" src="https://github.com/user-attachments/assets/2ea2bbd4-2287-433f-bc12-e344b7ae55cf" /> 
+<img width="1915" height="1013" alt="image" src="https://github.com/user-attachments/assets/5f19fcdc-940c-4541-ab6c-1c0681f7d0e3" />
+
