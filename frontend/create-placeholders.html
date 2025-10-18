@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Placeholder Images</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="200"></canvas>
+    <script>
+        const images = [
+            'hero-bg.jpg', 'free-shipping.png', 'secure-payment.png', 
+            'premium-quality.png', 'support.png', 'munchee-crackers.jpg',
+            'sunlight-liquid.jpg', 'vim-liquid.jpg', 'kist-jam.jpg',
+            'elephant-house-soda.jpg', 'anchor-milk.jpg', 'maggi-noodles.jpg',
+            'dettol-soap.jpg', 'placeholder-product.jpg'
+        ];
+        
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        images.forEach((imageName, index) => {
+            // Create different colored backgrounds
+            const colors = ['#2ecc71', '#3498db', '#e74c3c', '#f1c40f', '#9b59b6'];
+            ctx.fillStyle = colors[index % colors.length];
+            ctx.fillRect(0, 0, 300, 200);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(imageName.replace('.jpg', '').replace('.png', ''), 150, 100);
+            
+            // Convert to blob and download
+            canvas.toBlob(function(blob) {
+                const link = document.createElement('a');
+                link.download = imageName;
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>

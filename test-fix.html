@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Registration Fix</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { display: block; margin: 10px 0; padding: 10px; width: 300px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Test Registration</h1>
+    
+    <input type="text" id="name" placeholder="Name" value="Test User">
+    <input type="email" id="email" placeholder="Email" value="test@example.com">
+    <input type="password" id="password" placeholder="Password" value="123456">
+    <button onclick="testRegister()">Test Register</button>
+    
+    <div id="result"></div>
+
+    <script>
+        async function testRegister() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            console.log('Testing registration with:', { name, email, password });
+            
+            try {
+                const response = await fetch('http://localhost:3001/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+                
+                const result = await response.json();
+                console.log('Registration result:', result);
+                
+                const resultDiv = document.getElementById('result');
+                if (result.success) {
+                    resultDiv.innerHTML = `<p class="success">✅ ${result.message}</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p class="error">❌ ${result.message}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = `<p class="error">❌ ${error.message}</p>`;
+            }
+        }
+        
+        // Test the connection on load
+        fetch('http://localhost:3001/api/health')
+            .then(response => response.json())
+            .then(data => console.log('Health check:', data))
+            .catch(error => console.error('Health check failed:', error));
+    </script>
+</body>
+</html>
